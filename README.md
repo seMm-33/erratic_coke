@@ -3,7 +3,7 @@
 
 Drug script with a few config options to make it fit into most servers. Comes with an English and German translation.
 
-__IMPORTANT: SINCE A LOT OF SERVERS DON'T WANT TO USE ONESYNC YOU WILL HAVE TO ADD PROTECTION AGAINST TRIGGERS YOURSELF__
+__IMPORTANT: YOU WILL HAVE TO PROTECT THE SERVER SIDE CODE YOURSELF__
 
 # Prerequisites:
 - ESX

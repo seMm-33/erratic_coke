@@ -527,3 +527,12 @@ function DrawText3Ds(x,y,z, text)
     DrawRect(_x,_y+0.0125, 0.015+ factor, 0.03, 41, 11, 41, 68)
 end
 
+-- (Optional) Shows your coords, useful if you want to add new locations.
+
+if Config.getCoords then
+	RegisterCommand("mycoords", function()
+		local player = GetPlayerPed(-1)
+	    local x,y,z = table.unpack(GetEntityCoords(player))
+	    print("X: "..x.." Y: "..y.." Z: "..z)
+	end)
+end

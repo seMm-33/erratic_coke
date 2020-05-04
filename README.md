@@ -1,6 +1,8 @@
 # erratic_coke
 [Video showcase](https://www.youtube.com/watch?v=OU9ycYdx3Jw&feature=youtu.be)
 
+[FiveM forum post](https://forum.cfx.re/t/release-erratic-coke-a-plane-coke-run/1188641)
+
 Drug script that has you fly a plane to pick up drugs. Offers a few config options to make it fit into most servers. Comes with an English and German translation.
 
 __IMPORTANT: YOU WILL HAVE TO PROTECT THE SERVER SIDE CODE YOURSELF__

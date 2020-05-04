@@ -1,7 +1,7 @@
 # erratic_coke
 [Video showcase](https://www.youtube.com/watch?v=OU9ycYdx3Jw&feature=youtu.be)
 
-Drug script with a few config options to make it fit into most servers. Comes with an English and German translation.
+Drug script that has you fly a plane with a few config options to make it fit into most servers. Comes with an English and German translation.
 
 __IMPORTANT: YOU WILL HAVE TO PROTECT THE SERVER SIDE CODE YOURSELF__
 

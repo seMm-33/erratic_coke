@@ -65,7 +65,7 @@ client_scripts {
 	'locales/de.lua',
 	'locales/en.lua',
 	'config.lua',
-    'client/erratic_coke_cl.lua'
+    	'client/erratic_coke_cl.lua'
 }
 
 server_scripts {
@@ -73,6 +73,6 @@ server_scripts {
 	'locales/de.lua',
 	'locales/en.lua',
 	'config.lua',
-    'server/erratic_coke_sv.lua'
-}```
+    	'server/erratic_coke_sv.lua'
+}
 

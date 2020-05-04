@@ -7,6 +7,8 @@ Drug script that has you fly a plane to pick up drugs. Offers a few config optio
 
 __IMPORTANT: YOU WILL HAVE TO PROTECT THE SERVER SIDE CODE YOURSELF__
 
+---
+
 # Prerequisites:
 - ESX
 - A working database

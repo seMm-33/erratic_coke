@@ -1,7 +1,9 @@
 # erratic_coke
 [Video showcase](https://www.youtube.com/watch?v=OU9ycYdx3Jw&feature=youtu.be)
 
-Drug script with a few config options to make it fit into most servers. Comes with an English and German translation
+Drug script with a few config options to make it fit into most servers. Comes with an English and German translation.
+
+__SINCE A LOT OF SERVERS DON'T WANT TO USE ONESYNC YOU WILL HAVE TO ADD PROTECTION AGAINST TRIGGERS YOURSELF__
 
 # Prerequisites:
 - ESX

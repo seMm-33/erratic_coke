@@ -135,7 +135,7 @@ function main()
 end
 
 function planeFly()
-	local pilothash = GetHashKey("s_m_m_pilot_02")
+	local pilothash = GetHashKey(Config.pilotPed)
     RequestModel(pilothash)
     while not HasModelLoaded(pilothash) do
         Citizen.Wait(0)

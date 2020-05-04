@@ -2,8 +2,8 @@ ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-local hiddenprocess = vector3(-331.7995, -2444.753, 7.358099) -- Change this to whatever location you want
-local hiddenstart = vector3(-480.7245, 6266.324, 13.63469) -- Change this to whatever location you want
+local hiddenprocess = vector3(-331.7995, -2444.753, 7.358099) -- Change this to whatever location you want. This is server side to prevent people from dumping the coords
+local hiddenstart = vector3(-480.7245, 6266.324, 13.63469) -- Change this to whatever location you want. This is server side to prevent people from dumping the coords
 
 RegisterNetEvent('coke:updateTable')
 AddEventHandler('coke:updateTable', function(bool)

@@ -29,6 +29,7 @@ local planehash
 local driveHangar
 local blip
 local isProcessing = false
+local player
 
 Citizen.CreateThread(function()
 	while ESX == nil do TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end) Wait(0) end
@@ -103,12 +104,14 @@ AddEventHandler('coke:onUse', function(source)
 end)
 
 function main()
-	local player = GetPlayerPed(-1)
+	TriggerServerEvent('coke:updateTable', true)
+	player = GetPlayerPed(-1)
+	FreezeEntityPosition(player, true)
 	SetEntityCoords(player, coord.x-0.1,coord.y-0.1,coord.z-1, 0.0,0.0,0.0, false)
 	SetEntityHeading(player, Config.doorHeading)
 	playAnim("timetable@jimmy@doorknock@", "knockdoor_idle", 3000)
-	Citizen.Wait(2000)
-	TriggerServerEvent('coke:updateTable', true)
+	Citizen.Wait(3000)
+	FreezeEntityPosition(player, false)
 	if Config.useMythic then
 		exports['mythic_notify']:DoLongHudText('inform', _U'go_airfield')
 	end
@@ -123,7 +126,10 @@ function main()
 			local player = GetPlayerPed(-1)
 			playerpos = GetEntityCoords(player)
 			local disttocoord = #(vector3(location.fuel.x,location.fuel.y,location.fuel.z)-vector3(playerpos.x,playerpos.y,playerpos.z))
-			if disttocoord <= 300 then
+			if disttocoord <= 300 and not Config.landPlane then
+				planeGround()
+				enroute = false
+			elseif disttocoord <= 300 and Config.landPlane then
 				planeFly()
 				enroute = false
 			else
@@ -132,6 +138,20 @@ function main()
 			Citizen.Wait(sleep)
 		end
 	end)
+end
+
+function planeGround()
+	local planehash = GetHashKey("dodo")
+	RequestModel(planehash)
+	while not HasModelLoaded(planehash) do
+		Citizen.Wait(0)
+	end
+	airplane = CreateVehicle(planehash, location.stationary.x,location.stationary.y,location.stationary.z, location.stationary.h, true, true)
+	FreezeEntityPosition(airplane, true)
+	if Config.useMythic then
+        exports['mythic_notify']:DoLongHudText('inform', _U'no_fuel')
+    end
+	fuel(location.fuel.x,location.fuel.y,location.fuel.z)
 end
 
 function planeFly()
@@ -259,6 +279,8 @@ function fuel(x,y,z)
 	while not HasModelLoaded(prop) do
 		Citizen.Wait(0)
 	end
+	RemoveBlip(blip)
+	SetBlipRoute(blip, false)
 	jerrycan = GetHashKey("WEAPON_PETROLCAN")
 	local fuelSpawn = CreateObject(prop, x,y,z-1, true, true, false)
 	local player = GetPlayerPed(-1)

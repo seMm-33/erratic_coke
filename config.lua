@@ -1,5 +1,5 @@
 Config = {}
-Config.Locale = 'en' -- English or German - (en/de)
+Config.Locale = 'en' -- English, German or Spanish - (en/de/es)
 
 Config.useMythic = true -- change this if you want to use mythic_notify or not
 Config.progBar = true -- change this if you want to use Progress Bar or not

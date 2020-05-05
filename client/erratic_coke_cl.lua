@@ -126,7 +126,7 @@ function main()
 			local player = GetPlayerPed(-1)
 			playerpos = GetEntityCoords(player)
 			local disttocoord = #(vector3(location.fuel.x,location.fuel.y,location.fuel.z)-vector3(playerpos.x,playerpos.y,playerpos.z))
-			if disttocoord <= 300 and not Config.landPlane then
+			if disttocoord <= 100 and not Config.landPlane then
 				planeGround()
 				enroute = false
 			elseif disttocoord <= 300 and Config.landPlane then
@@ -148,6 +148,7 @@ function planeGround()
 	end
 	airplane = CreateVehicle(planehash, location.stationary.x,location.stationary.y,location.stationary.z, location.stationary.h, true, true)
 	FreezeEntityPosition(airplane, true)
+	SetVehicleDoorsLocked(airplane, 2)
 	if Config.useMythic then
         exports['mythic_notify']:DoLongHudText('inform', _U'no_fuel')
     end
@@ -348,6 +349,7 @@ function plane(fuel)
 					end
 					RemoveWeaponFromPed(player, jerrycan)
 					FreezeEntityPosition(airplane, false)
+					SetVehicleDoorsLocked(airplane, 0)
 					FreezeEntityPosition(player, false)
 					ClearPedTasksImmediately(player)
 					delivery()
@@ -404,9 +406,9 @@ function delivery()
 				if IsControlJustPressed(1, 51) then
 					delivering = false
 					if Config.progBar then
-						exports['progressBars']:startUI(2000, _U'picking_deliv')
+						exports['progressBars']:startUI(Config.pickupTime, _U'picking_deliv')
 					end
-					Citizen.Wait(2000)
+					Citizen.Wait(Config.pickupTime)
 					if Config.useMythic then
 						exports['mythic_notify']:DoLongHudText('success', _U'picked_deliv')
 					end

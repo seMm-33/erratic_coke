@@ -1,4 +1,4 @@
-Locales['en'] = {
+Locales['de'] = {
 	['press_start'] = 'Drücke [ E ] um ein unauffindbares Flugzeug anzufordern',
 	['unavailable'] = 'Jemand hat bereits ein Flugzeug angefordert',
 	['coke_use'] = 'Du merkst, dass dein Herz schneller schlägt und du mehr Energie hast', 
